@@ -3,9 +3,9 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'LocalGuard — Privacy Control Center',
-  description: 'A privacy-preserving browser agent with local perception, a privacy firewall, and local action validation.',
-  generator: 'LocalGuard',
+  title: 'PRIVEDGE — Privacy Control Center',
+  description: 'PRIVEDGE is a privacy-preserving browser agent with local perception, a privacy firewall, and local action validation.',
+  generator: 'PRIVEDGE',
   icons: {
     icon: [
       {
