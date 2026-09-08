@@ -3,9 +3,9 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'LocalGuard — Privacy Control Center',
+  description: 'A privacy-preserving browser agent with local perception, a privacy firewall, and local action validation.',
+  generator: 'LocalGuard',
   icons: {
     icon: [
       {
@@ -26,11 +26,9 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'dark',
+  themeColor: '#080b10',
+  userScalable: false,
 }
 
 export default function RootLayout({
