@@ -1,0 +1,25 @@
+{
+  "name": "privedge-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PRIVEDGE Phase 5 — Privacy-Preserving Backend (SIH26171)",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "node --experimental-strip-types --no-warnings src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "node --experimental-strip-types --no-warnings tests/backend.test.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.7.3"
+  }
+}

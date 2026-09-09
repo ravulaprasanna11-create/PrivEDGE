@@ -5,9 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build:extension": "node scripts/build-extension.mjs",
+    "test:privacy": "node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" lib/privacy/privacy.test.ts",
+    "test:extension": "node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" extension/tests/extension.test.ts",
+    "test:perception": "node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" lib/perception/perception.test.ts",
+    "test:firewall": "node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" lib/firewall/firewall.test.ts",
+    "test": "npm run test:privacy && npm run test:extension && npm run test:perception && npm run test:firewall",
+    "backend:dev": "cd backend && node --experimental-strip-types --no-warnings src/server.ts",
+    "backend:build": "cd backend && npx tsc",
+    "backend:start": "node backend/dist/server.js",
+    "test:backend": "cd backend && node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" tests/backend.test.ts",
+    "test:reasoning": "cd backend && node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" tests/reasoning.test.ts",
+    "test:action-guard": "node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" extension/tests/action-guard.test.ts",
+    "test:benchmark": "node --experimental-strip-types --no-warnings --loader \"data:text/javascript,export async function resolve(s,c,d){try{return await d(s,c)}catch(e){if(s.startsWith('.')){for(let ext of ['.ts','/index.ts']){try{return await d(s+ext,c)}catch{}}}throw e;}}\" lib/benchmark/benchmark.test.ts"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
     "@base-ui/react": "^1.5.0",
     "@vercel/analytics": "1.6.1",
     "class-variance-authority": "^0.7.1",
@@ -30,3 +44,4 @@
     "typescript": "5.7.3"
   }
 }
+

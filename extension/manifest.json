@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "PRIVEDGE - Local Privacy Core for Browser Agents",
+  "version": "1.0.0",
+  "description": "On-device visual perception and local privacy pipeline for light-weight browser agents (SIH26171 - ISRO)",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "PRIVEDGE Privacy Guard"
+  }
+}
